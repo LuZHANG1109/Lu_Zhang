@@ -21,38 +21,21 @@ public class Solution {
         int[] cmpB = new int[Bs.length];
 
         for (int i = 0; i < As.length; i++) {
-            if (As[i].substring(As[i].length() - 1).equals("S")) {
-                cmpA[i] = 0;
-            } else if (As[i].substring(As[i].length() - 1).equals("M")) {
-                cmpA[i] = 1;
-            } else {
-                cmpA[i] = 2;
-
-            }
+            if (As[i].substring(As[i].length() - 1).equals("S")) cmpA[i] = 0;
+            else if (As[i].substring(As[i].length() - 1).equals("M")) cmpA[i] = 1;
+            else cmpA[i] = 2;
         }
         for (int i = 0; i < Bs.length; i++) {
-            if (Bs[i].substring(Bs[i].length() - 1).equals("S")) {
-                cmpB[i] = 0;
-            } else if (Bs[i].substring(Bs[i].length() - 1).equals("M")) {
-                cmpB[i] = 1;
-            } else {
-                cmpB[i] = 2;
-            }
+            if (Bs[i].substring(Bs[i].length() - 1).equals("S")) cmpB[i] = 0;
+            else if (Bs[i].substring(Bs[i].length() - 1).equals("M")) cmpB[i] = 1;
+            else cmpB[i] = 2;
         }
 
         Arrays.sort(cmpA);
         Arrays.sort(cmpB);
-        // for (int i : cmpA) {
-        //     System.out.print(i);
-        // }
-        // for (int i : cmpB) {
-        //     System.out.print(i);
-        // }
 
         boolean flg = true;
         for (int i = Bs.length - 1; i >= 0; i--) {
-            //System.out.println(i);
-            //System.out.println(i + Bs.length - As.length);
             if (cmpA[i + As.length - Bs.length] < cmpB[i]) {
                 flg = false;
                 break;
@@ -76,11 +59,7 @@ public class Solution {
         // cmpB[i]+=Integer.toString(Bs[i].length()-1);
         // }
         // }
-        if (!flg) {
-            System.out.println("No");
-        } else {
-            System.out.println("Yes");
-        }
-
+        if (!flg) System.out.println("No");
+        else System.out.println("Yes");
     }
 }
