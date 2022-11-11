@@ -1,4 +1,4 @@
-select owner_id , owner_name, DISTINCT COUNT(*) as different_category_count
+select owner_id , owner_name, COUNT(distinct category_id) as different_category_count
 from owner left join article
 on owner.owner_id=article.owner_id
 left join category_article_mapping
